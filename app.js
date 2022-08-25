@@ -1,6 +1,7 @@
 const inputs = document.querySelectorAll("input");
 const btns = document.querySelectorAll(".grid-btn")
 const h2 = document.querySelectorAll("h2");
+const resetBtn = document.querySelector(".resetBtn");
 
 btns.forEach(btn => {
     btn.onclick = () => {
@@ -26,13 +27,28 @@ function getResult() {
     let tip = getTip();
     let people = getPeople();
     let total = getTotal();
+    total = total.toFixed(2);
 
-    if(total.toString().length > 10) {
-        total = total.toFixed(2);
-    }
-    
+        
     h2[0].textContent = tip;
     h2[1].textContent = total;
+
+    if(bill != NaN || tip != 0) {
+        resetBtn.classList.add("btn-active")
+        resetBtn.addEventListener("click", () => {
+            bill = 0;
+            tip = 0;
+            people = 1;
+            inputs[0].value = 0;
+            inputs[1].value = 0;
+            inputs[2].value = 1;
+            h2[0].textContent = `$0.00`;
+            h2[1].textContent = `$0.00`;
+            resetBtn.classList.remove("btn-active")
+        })
+    } else {
+        resetBtn.classList.remove("btn-active")
+    }
 }
 
 function getBill() {
