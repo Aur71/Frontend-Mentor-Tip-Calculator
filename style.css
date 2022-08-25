@@ -81,12 +81,14 @@ input {
   display: block;
   border: none;
   width: 100%;
-  padding: 5px 15px;
+  padding: 3px 10px;
   border-radius: 5px;
   background-color: var(--clr6);
   outline: none;
   text-align: right;
   font-size: 24px;
+  border: 2px solid transparent;
+  color: var(--clr2);
 }
 
 .bill {
@@ -95,7 +97,7 @@ input {
 
 .bill img {
   position: absolute;
-  top: 50px;
+  top: 51px;
   left: 20px;
 }
 
@@ -135,7 +137,6 @@ input {
   background-color: var(--clr2);
   color: var(--clr7);
   min-height: 50px;
-  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,7 +151,13 @@ input {
   font-size: 20px;
   color: var(--clr2);
   text-transform: none;
-  border: 1px solid black;
+  border: 2px solid transparent;
+}
+
+input:focus,
+#custom:focus {
+  outline: none !important;
+  border: 2px solid var(--clr1);
 }
 
 #custom::-webkit-input-placeholder {
@@ -172,7 +179,7 @@ input {
 
 .people img {
   position: absolute;
-  top: 50px;
+  top: 51px;
   left: 20px;
 }
 
@@ -237,4 +244,65 @@ h2 {
   margin-top: auto;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+/* Mobile design below */
+
+@media only screen and (max-width: 810px) {
+  main {
+    padding-top: 50px;
+    gap: 20px;
+    height: auto;
+  }
+
+  .container {
+    width: 350px;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .tip-btns {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .col-2 {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  .amount-person p:first-child {
+    color: var(--clr7);
+    font-size: 14px;
+  }
+
+  .amount-person p:last-child {
+    color: var(--clr3);
+    font-size: 13px;
+  }
+
+  .total-person p:first-child {
+    color: var(--clr7);
+    font-size: 14px;
+  }
+
+  .total-person p:last-child {
+    color: var(--clr3);
+    font-size: 13px;
+  }
+
+  .resetBtn {
+    margin-top: 10px;
+  }
+}
+
+/* JS Classes */
+
+.btn-active {
+  background-color: var(--clr1);
+  color: var(--clr2);
 }
